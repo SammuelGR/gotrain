@@ -2,11 +2,11 @@ import React from "react";
 
 import { Text, View } from "react-native";
 
-export default class Details extends React.Component {
+export default class New extends React.Component {
   render() {
     return (
       <View>
-        <Text>Detalhes!</Text>
+        <Text>New</Text>
       </View>
     );
   }
