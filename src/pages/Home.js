@@ -1,10 +1,12 @@
 import React from "react";
+import { StyleSheet, View } from "react-native";
+import { connect } from "react-redux";
 
-import { Button, StyleSheet, Text, View } from "react-native";
+import { addActivity } from "../actions";
 
-import TabIconHome from "../components/TabIconHome";
+import ActivityList from "../components/ActivityList";
 
-export default class Home extends React.Component {
+class Home extends React.Component {
   static navigationOptions = {
     title: "GoTrain"
   };
@@ -12,23 +14,24 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button
-          title="Ir para detalhes"
-          onPress={() => this.props.navigation.navigate("Details")}
-        />
-        <Text>Home!</Text>
-        <TabIconHome />
-        <Text>Home!</Text>
+        <ActivityList />
       </View>
     );
   }
 }
 
+export default connect(
+  null,
+  {
+    dispatchAddActivity: addActivity
+  }
+)(Home);
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#FFECB3",
     alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: "#FFECB3",
+    flex: 1,
+    paddingTop: 10
   }
 });

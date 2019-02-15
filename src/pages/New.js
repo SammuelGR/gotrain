@@ -1,13 +1,30 @@
 import React from "react";
+import { Button, StyleSheet, View } from "react-native";
+import { connect } from "react-redux";
 
-import { Text, View } from "react-native";
+import { addActivity } from "../actions";
 
-export default class New extends React.Component {
-  render() {
-    return (
-      <View>
-        <Text>New</Text>
-      </View>
-    );
+const New = props => (
+  <View style={styles.container}>
+    <Button
+      title="Add Activity"
+      onPress={() => props.dispatchAddActivity("Nova atividade")}
+    />
+  </View>
+);
+
+export default connect(
+  null,
+  {
+    dispatchAddActivity: addActivity
   }
-}
+)(New);
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    backgroundColor: "#FFECB3",
+    flex: 1,
+    justifyContent: "center"
+  }
+});

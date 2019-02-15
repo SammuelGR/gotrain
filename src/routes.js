@@ -9,7 +9,9 @@ import {
 import Home from "./pages/Home";
 import Details from "./pages/Details";
 import New from "./pages/New";
+
 import TabIconHome from "./components/TabIconHome";
+import TabIconNew from "./components/TabIconNew";
 
 const Routes = createAppContainer(
   createBottomTabNavigator(
@@ -39,7 +41,8 @@ const Routes = createAppContainer(
             return <TabIconHome />;
           }
           if (routeName === "New") {
-            return <TabIconHome />;
+            if (focused) return <TabIconNew selected />;
+            return <TabIconNew />;
           }
         }
       }),

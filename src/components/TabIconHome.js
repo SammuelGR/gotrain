@@ -2,7 +2,7 @@ import React from "react";
 
 import { Image, StyleSheet, View } from "react-native";
 
-const TabIcon = props => {
+const TabIconHome = props => {
   const imgDashboardSelected = require("../../assets/dashboard-selected.png");
   const imgDashboard = require("../../assets/dashboard.png");
 
@@ -20,7 +20,7 @@ const TabIcon = props => {
   );
 };
 
-export default TabIcon;
+export default TabIconHome;
 
 const styles = StyleSheet.create({
   container: {
