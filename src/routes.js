@@ -9,8 +9,7 @@ import {
 import Home from "./pages/Home";
 import Details from "./pages/Details";
 import New from "./pages/New";
-
-import TabIcon from "./components/TabIcon";
+import TabIconHome from "./components/TabIconHome";
 
 const Routes = createAppContainer(
   createBottomTabNavigator(
@@ -35,7 +34,13 @@ const Routes = createAppContainer(
       defaultNavigationOptions: ({ navigation }) => ({
         tabBarIcon: ({ focused }) => {
           const { routeName } = navigation.state;
-          return <TabIcon name={routeName} />;
+          if (routeName === "Feed") {
+            if (focused) return <TabIconHome selected />;
+            return <TabIconHome />;
+          }
+          if (routeName === "New") {
+            return <TabIconHome />;
+          }
         }
       }),
       tabBarOptions: {
