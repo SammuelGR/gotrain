@@ -1,16 +1,19 @@
 import React from "react";
-import { Button, StyleSheet, View } from "react-native";
+import { Button, SafeAreaView, StyleSheet, View } from "react-native";
 import { connect } from "react-redux";
 
 import { addActivity } from "../actions";
 
+import ActivityTitle from "../components/ActivityTitle";
+
 const New = props => (
-  <View style={styles.container}>
+  <SafeAreaView style={styles.container}>
+    <ActivityTitle />
     <Button
       title="Add Activity"
       onPress={() => props.dispatchAddActivity("Nova atividade")}
     />
-  </View>
+  </SafeAreaView>
 );
 
 export default connect(
